@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 // 1. 데이터베이스 서버에 접속
 $link = mysql_connect('localhost', 'root', 'zopan0129');
 if (!$link) {
@@ -102,11 +102,9 @@ if (!empty($_GET['id'])) {
 					$sql = "select id,title from topic";
 					$result = mysql_query($sql);
 					while ($row = mysql_fetch_assoc($result)) {
-						echo "
-                    <li>
-                        <a href=\"?id={$row['id']}\">{$row['title']}</a></li>";
+						echo "<li><a href=\"?id={$row['id']}\">{$row['title']}</a></li>";
 					}
-                        ?>
+                    ?>
                 </ul>
             </nav>
             <article>
@@ -119,7 +117,24 @@ if (!empty($_GET['id'])) {
                 </div>
                 <?php
 				}
-                ?>
+				else{
+			?>
+					<form action="./add_process.php" method="POST">
+						<p>
+							제목 
+							<input type="text" name="title" />
+							<br />
+						</p>
+						<p>
+							본문 
+							<textarea name="description" rows="5" cols="20"></textarea>
+							<br />
+						</p>
+						<input type="submit" value="제출"/>
+					</form>
+				<?php
+				}
+				?>
             </article>
         </div>
     </body>

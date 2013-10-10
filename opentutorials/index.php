@@ -82,6 +82,11 @@ if (!empty($_GET['id'])) {
 				width: 500px;
 			}
         </style>
+        <script>
+        	function moveAddPage(){
+        		location.href = "./add.php";
+        	}
+        </script>
     </head>
   
     <body id="body">
@@ -94,9 +99,10 @@ if (!empty($_GET['id'])) {
                 <input type="button" value="white" onclick="document.getElementById('body').className='white'" />
             </div>
             <nav>
-            	<form action="./add.php">
+            	<!-- <form action="./add.php">
 					<input type="submit" value="토픽추가"></input>
-				</form>
+				</form> -->
+				<input type="button" value="토픽추가" onclick="javascript/moveAddPage();" />
                 <ul>
                     <?php
 					$sql = "select id,title from topic";
